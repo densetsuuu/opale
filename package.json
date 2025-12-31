@@ -1,0 +1,20 @@
+{
+  "name": "@opale/monorepo",
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "dev": "docker compose up -d && turbo dev --ui=tui",
+    "format": "oxfmt",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.36.0",
+    "oxlint-tsgolint": "^0.10.0",
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.3"
+  }
+}

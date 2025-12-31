@@ -1,0 +1,7 @@
+packages:
+  - apps/*
+  - packages/*
+
+catalog:
+  '@tuyau/core': 1.0.0-beta.10
+  ts-pattern: ^5.9.0

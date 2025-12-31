@@ -1,0 +1,4 @@
+name: opale
+
+include:
+  - ./apps/api/docker-compose.yaml

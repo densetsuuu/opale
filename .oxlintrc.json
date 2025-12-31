@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  /**
+   * Global config
+   */
+  "plugins": ["typescript", "eslint", "unicorn", "import", "promise"],
+  "rules": {
+    "typescript/triple-slash-reference": "off"
+  },
+
+  "overrides": [
+    /**
+     * Web specific overrides
+     */
+    {
+      "files": ["./apps/app/**/*"],
+      "plugins": ["react", "react-perf"]
+    },
+
+    /*
+     * API specific overrides
+     */
+    {
+      "files": ["./apps/api/**/*"],
+      "plugins": ["node"]
+    }
+  ],
+
+  "ignorePatterns": [".adonisjs/**", "node_modules/**", "dist/**", "build/**"]
+}
