@@ -1,12 +1,14 @@
 import type { Data } from '@opale/api/data'
 
-import { createFileRoute } from '@tanstack/react-router'
+import { Calendar } from 'lucide-react'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { useSuspenseQuery } from '@tanstack/react-query'
 
 import { getMeQueryOptions, redirectToLoginIfNotAuthenticated } from '@/hooks/auth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 
-export const Route = createFileRoute('/dashboard')({
+export const Route = createFileRoute('/(app)/dashboard')({
   component: RouteComponent,
   beforeLoad: async () => await redirectToLoginIfNotAuthenticated(),
 })
@@ -16,8 +18,23 @@ function RouteComponent() {
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-4rem)]">
-      <div className="w-full max-w-2xl mx-auto px-4">
+      <div className="w-full max-w-2xl mx-auto px-4 space-y-6">
         <UserCard user={user} />
+
+        <Card className="corner-squircle rounded-4xl">
+          <CardHeader>
+            <CardTitle>Quick Actions</CardTitle>
+            <CardDescription>Access your tools and features</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Link to="/workload">
+              <Button variant="outline" className="w-full corner-squircle rounded-4xl">
+                <Calendar className="size-4" />
+                Plans de charge
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
