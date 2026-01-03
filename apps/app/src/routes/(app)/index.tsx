@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { isAuthenticatedQueryOptions } from '@/hooks/auth'
 import { Button } from '@/components/ui/button'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/(app)/')({
   component: App,
 })
 

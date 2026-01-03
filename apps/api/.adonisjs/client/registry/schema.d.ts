@@ -5,6 +5,116 @@ import type { ExtractBody, ExtractQuery, ExtractQueryForGet } from '@tuyau/core/
 import type { InferInput } from '@vinejs/vine/types'
 
 export interface Registry {
+  'workload.items.index': {
+    methods: ["GET"]
+    pattern: '/workload-items'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.items.store': {
+    methods: ["POST"]
+    pattern: '/workload-items'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.items.show': {
+    methods: ["GET"]
+    pattern: '/workload-items/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.items.update': {
+    methods: ["PUT"]
+    pattern: '/workload-items/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.items.destroy': {
+    methods: ["DELETE"]
+    pattern: '/workload-items/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.plans.index': {
+    methods: ["GET"]
+    pattern: '/workload-plans'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.plans.store': {
+    methods: ["POST"]
+    pattern: '/workload-plans'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.plans.show': {
+    methods: ["GET"]
+    pattern: '/workload-plans/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.plans.update': {
+    methods: ["PUT"]
+    pattern: '/workload-plans/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
+  'workload.plans.destroy': {
+    methods: ["DELETE"]
+    pattern: '/workload-plans/:id'
+    types: {
+      body: {}
+      paramsTuple: [string]
+      params: { id: string }
+      query: {}
+      response: unknown
+    }
+  }
   'auth.register': {
     methods: ["POST"]
     pattern: '/register'
@@ -25,6 +135,17 @@ export interface Registry {
       params: {}
       query: ExtractQuery<InferInput<(typeof import('#app/identity/validators/user').loginValidator)>>
       response: Awaited<ReturnType<import('#app/identity/controllers/auth_controller').default['login']>>
+    }
+  }
+  'auth.logout': {
+    methods: ["POST"]
+    pattern: '/logout'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: Awaited<ReturnType<import('#app/identity/controllers/auth_controller').default['logout']>>
     }
   }
   'auth.is_authenticated': {
